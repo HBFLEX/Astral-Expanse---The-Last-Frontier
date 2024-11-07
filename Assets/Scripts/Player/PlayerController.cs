@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviour
     {
         if (_movement.x > 0.1)
         {
-           _sr.flipX = true; 
+           _sr.flipX = true;
         }
-        else
+        else if(_movement.x < -0.1)
         {
             _sr.flipX = false;
         }
