@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixPlayerSize()
     {
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
     private void MovePlayer()
