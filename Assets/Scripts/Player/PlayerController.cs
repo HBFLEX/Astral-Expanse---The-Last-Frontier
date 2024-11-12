@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float speed = 3f;
     private Vector2 _movement;
+    [SerializeField] private bool hasGun = true;
     
     private bool _isDashing = false;
     [SerializeField] private float dashSpeed = 2f;
@@ -84,8 +85,11 @@ public class PlayerController : MonoBehaviour
         // get the player input
         _movement = _playerControls.Player.Move.ReadValue<Vector2>();
         // animate running state
-        _animator.SetFloat("MoveX", _movement.x);
+        
+        _animator.SetBool("hasGun", hasGun); 
         _animator.SetFloat("MoveY", _movement.y);
+        _animator.SetFloat("MoveX", _movement.x);
+        
     }
 
     private void ChangePlayerDirectionOnAxis()
