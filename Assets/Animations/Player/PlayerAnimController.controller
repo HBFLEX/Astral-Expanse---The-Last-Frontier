@@ -226,7 +226,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MoveY
     m_EventTreshold: -0.1
   - m_ConditionMode: 4
-    m_ConditionEvent: MoveX
+    m_ConditionEvent: MoveY
     m_EventTreshold: 0.1
   - m_ConditionMode: 1
     m_ConditionEvent: hasGun

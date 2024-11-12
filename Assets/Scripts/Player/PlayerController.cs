@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TrailRenderer trailRenderer;
     
     [SerializeField] private float speed = 3f;
-    private Vector2 _movement;
+    public Vector2 _movement;
     [SerializeField] private bool hasGun = true;
     
     private bool _isDashing = false;
