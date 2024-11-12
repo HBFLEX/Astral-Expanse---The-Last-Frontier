@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform bulletShootingSpawnPoint;
     [SerializeField] private GameObject bulletPrefab;
-    private GameObject _bulletPrefabObj;
+    
+    [SerializeField] private float bulletSpeed = 4f;
+    
     
     public bool isFacingLeft = true;
     
@@ -79,8 +81,14 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        _bulletPrefabObj = Instantiate(bulletPrefab, bulletShootingSpawnPoint.position, Quaternion.identity);
-        _bulletPrefabObj.transform.parent = bulletShootingSpawnPoint.parent;
+        GameObject bulletPrefabObj = Instantiate(bulletPrefab, bulletShootingSpawnPoint.position, Quaternion.identity);
+        bulletPrefabObj.transform.parent = bulletShootingSpawnPoint.parent;
+        Rigidbody2D bulletRb = bulletPrefabObj.GetComponent<Rigidbody2D>();
+
+        if (bulletRb != null)
+        {
+            bulletRb.AddForce(-bulletShootingSpawnPoint.right * bulletSpeed, ForceMode2D.Impulse);
+        }
     }
 
     private IEnumerator EndDashRoutine()

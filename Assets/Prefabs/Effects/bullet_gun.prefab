@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1895365759782430267}
   - component: {fileID: 5656276533871639914}
   - component: {fileID: 7492128543005734157}
-  - component: {fileID: -6871360999643362444}
+  - component: {fileID: 1395825489976988751}
   m_Layer: 0
   m_Name: bullet_gun
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.688, y: 0.25344464, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -149,7 +149,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0016276425, y: 0.00895119}
   m_Size: {x: 0.334098, y: 0.14223611}
   m_Direction: 1
---- !u!114 &-6871360999643362444
+--- !u!114 &1395825489976988751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,5 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1abdef81ec116b479f58d7df4c3b66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
   bulletLifeTime: 5
