@@ -11,8 +11,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _sr;
-    [SerializeField] private float _speed = 5f;
+    [SerializeField] private TrailRenderer trailRenderer;
+    
+    [SerializeField] private float speed = 3f;
     private Vector2 _movement;
+    
+    private bool _isDashing = false;
+    [SerializeField] private float dashSpeed = 2f;
+    [SerializeField] private float dashTime = 0.3f;
+    
+    private void OnEnable()
+    {
+        _playerControls.Enable();
+    }
 
     private void Awake()
     {
@@ -24,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _playerControls.Enable();
+        _playerControls.Player.Dash.performed += _ => Dash();
     }
 
     private void Update()
@@ -36,12 +47,31 @@ public class PlayerController : MonoBehaviour
 
     private void FixPlayerSize()
     {
-        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
     }
 
     private void MovePlayer()
     {
-        _rb.MovePosition(_rb.position + _movement * (_speed * Time.fixedDeltaTime));
+        _rb.MovePosition(_rb.position + _movement * (speed * Time.fixedDeltaTime));
+    }
+
+    private void Dash()
+    {
+        if (!_isDashing)
+        {
+            _isDashing = true;
+            speed *= dashSpeed;
+            trailRenderer.emitting = true;
+            StartCoroutine(EndDashRoutine());
+        }
+    }
+
+    private IEnumerator EndDashRoutine()
+    {
+        yield return new WaitForSeconds(dashTime);
+        speed /= dashSpeed;
+        trailRenderer.emitting = false;
+        _isDashing = false;
     }
 
     private void GetPlayerInput()
