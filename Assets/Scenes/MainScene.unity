@@ -307,6 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368494963}
   - component: {fileID: 368494964}
+  - component: {fileID: 368494965}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -382,6 +383,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &368494965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368494962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151b1b92c09418a4685dbafeb485c1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &512898591
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +807,6 @@ GameObject:
   - component: {fileID: 564130140}
   - component: {fileID: 564130144}
   - component: {fileID: 564130145}
-  - component: {fileID: 564130146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -822,6 +834,7 @@ MonoBehaviour:
   dashTime: 0.3
   bulletShootingSpawnPoint: {fileID: 687475966}
   bulletPrefab: {fileID: 8493939834552871350, guid: 668a6be6bdad4b349b94f43d885fa2c2, type: 3}
+  isFacingLeft: 1
 --- !u!50 &564130141
 Rigidbody2D:
   serializedVersion: 4
@@ -974,19 +987,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.031670094, y: 0.034076452}
   m_Size: {x: 0.34095478, y: 0.34095478}
   m_Direction: 0
---- !u!114 &564130146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564130139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151b1b92c09418a4685dbafeb485c1a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 368494964}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687475966}
+  - component: {fileID: 687475967}
   m_Layer: 0
   m_Name: ShootingPoint
   m_TagString: Untagged
@@ -1105,6 +1106,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 368494963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &687475967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687475965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df42d08646477f145bc7fc9c76bbdf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizmoSize: 0.5
 --- !u!1001 &698006044
 PrefabInstance:
   m_ObjectHideFlags: 0

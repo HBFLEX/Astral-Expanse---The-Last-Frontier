@@ -21,7 +21,8 @@ public class HandleGunBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.AddForce(transform.parent.right * speed, ForceMode2D.Impulse);
+        _rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
+        
     }
 
     private IEnumerator DestroyBullet()

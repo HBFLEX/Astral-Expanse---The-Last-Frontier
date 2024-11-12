@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform bulletShootingSpawnPoint;
     [SerializeField] private GameObject bulletPrefab;
     private GameObject _bulletPrefabObj;
+    
+    public bool isFacingLeft = true;
     
     private void OnEnable()
     {
@@ -108,10 +107,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_movement.x > 0.1)
         {
+            isFacingLeft = false;
            _sr.flipX = true;
         }
         else if(_movement.x < -0.1)
         {
+            isFacingLeft = true;
             _sr.flipX = false;
         }
     }

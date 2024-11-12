@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer gun;
     private PlayerController _playerController;
-    private bool _isFacingLeft = true;
 
     private void Awake()
     {
-        _playerController = GetComponent<PlayerController>();
+        _playerController = GetComponentInParent<PlayerController>();
     }
 
     private void Update()
@@ -21,27 +19,14 @@ public class Gun : MonoBehaviour
 
     private void FlipGun()
     {
-        if (IsPlayerFacingLeft())
+        if (!_playerController.isFacingLeft)
         {
-            gun.flipX = false;
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
         }
         else
         {
-            gun.flipX = true;
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 0f, transform.rotation.z);
         }
     }
-
-    private bool IsPlayerFacingLeft()
-    {
-        if (_playerController._movement.x > 0.1)
-        {
-            _isFacingLeft = false;
-        }
-        else if(_playerController._movement.x < -0.1)
-        {
-            _isFacingLeft = true;
-        }
-
-        return _isFacingLeft;
-    }
+    
 }
