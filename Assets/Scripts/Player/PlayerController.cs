@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour
     private bool _isDashing = false;
     [SerializeField] private float dashSpeed = 2f;
     [SerializeField] private float dashTime = 0.3f;
+
+    [SerializeField] private Transform bulletShootingSpawnPoint;
+    [SerializeField] private GameObject bulletPrefab;
+    private GameObject _bulletPrefabObj;
     
     private void OnEnable()
     {
@@ -42,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _playerControls.Player.Dash.performed += _ => Dash();
+        _playerControls.Player.Shoot.performed += _ => Shoot();
     }
 
     private void Update()
@@ -70,6 +76,12 @@ public class PlayerController : MonoBehaviour
             trailRenderer.emitting = true;
             StartCoroutine(EndDashRoutine());
         }
+    }
+
+    private void Shoot()
+    {
+        _bulletPrefabObj = Instantiate(bulletPrefab, bulletShootingSpawnPoint.position, Quaternion.identity);
+        _bulletPrefabObj.transform.parent = bulletShootingSpawnPoint.parent;
     }
 
     private IEnumerator EndDashRoutine()
