@@ -24,6 +24,11 @@ public class PlayerController : MonoBehaviour
     {
         _playerControls.Enable();
     }
+    
+    private void OnDisable()
+    {
+        _playerControls.Disable();
+    }
 
     private void Awake()
     {
@@ -47,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixPlayerSize()
     {
-        transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     private void MovePlayer()
@@ -98,11 +103,5 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-    }
-    
-
-    private void OnDisable()
-    {
-        _playerControls.Disable();
     }
 }
