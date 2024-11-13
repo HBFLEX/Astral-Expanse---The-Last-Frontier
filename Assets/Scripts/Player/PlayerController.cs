@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _sr;
     [SerializeField] private TrailRenderer trailRenderer;
+    [SerializeField] private Transform muzzleFlash;
+    [SerializeField] private Transform gunTip;
     
     [SerializeField] private float speed = 3f;
     public Vector2 _movement;
@@ -82,12 +84,21 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         _lastFacingDirection = isFacingLeft ? Vector2.left : Vector2.right;
+        if (muzzleFlash != null)
+        {
+            GameObject muzzleFlashObj = Instantiate(muzzleFlash.gameObject, gunTip.position, Quaternion.identity);
+            muzzleFlashObj.transform.rotation = isFacingLeft ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 180f,0f);
+            if (muzzleFlashObj != null)
+            {
+                Destroy(muzzleFlashObj, 0.05f);
+            }
+        }
         GameObject bulletPrefabObj = Instantiate(bulletPrefab, bulletShootingSpawnPoint.position, Quaternion.identity);
         Rigidbody2D bulletRb = bulletPrefabObj.GetComponent<Rigidbody2D>();
 
         if (bulletRb != null)
         {
-            bulletRb.velocity = _lastFacingDirection * bulletSpeed;
+            bulletRb.AddForce(_lastFacingDirection * bulletSpeed, ForceMode2D.Impulse);
         }
     }
 
