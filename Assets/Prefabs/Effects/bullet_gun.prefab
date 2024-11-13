@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1395825489976988751}
   m_Layer: 0
   m_Name: bullet_gun
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifeTime: 5
-  explosionParticleEffect: {fileID: 9125212449759046732, guid: 3eccf588caac7724ebe099bcd1e9e755, type: 3}
+  enemyBulletDamageAmount: 10

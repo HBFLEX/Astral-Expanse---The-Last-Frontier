@@ -6,6 +6,13 @@ using UnityEngine;
 public class HandleGunBullet : MonoBehaviour
 {
     [SerializeField] private float bulletLifeTime = 4f;
+    [SerializeField] private int enemyBulletDamageAmount = 10;
+    private EnemyHealth _enemyHealth;
+
+    private void Awake()
+    {
+        _enemyHealth = GameObject.FindObjectOfType<EnemyHealth>();
+    }
 
     private void Update()
     {
@@ -14,10 +21,13 @@ public class HandleGunBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject != null)
         {
             Destroy(gameObject);
+            if(other.gameObject.CompareTag("Enemy") && _enemyHealth != null)
+            {
+                _enemyHealth.TakeDamage(enemyBulletDamageAmount);
+            }
         }
     }
 
