@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -84,21 +85,29 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         _lastFacingDirection = isFacingLeft ? Vector2.left : Vector2.right;
-        if (muzzleFlash != null)
-        {
-            GameObject muzzleFlashObj = Instantiate(muzzleFlash.gameObject, gunTip.position, Quaternion.identity);
-            muzzleFlashObj.transform.rotation = isFacingLeft ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 180f,0f);
-            if (muzzleFlashObj != null)
-            {
-                Destroy(muzzleFlashObj, 0.05f);
-            }
-        }
+        
+        FlashMuzzleEffect();
         GameObject bulletPrefabObj = Instantiate(bulletPrefab, bulletShootingSpawnPoint.position, Quaternion.identity);
         Rigidbody2D bulletRb = bulletPrefabObj.GetComponent<Rigidbody2D>();
 
         if (bulletRb != null)
         {
             bulletRb.AddForce(_lastFacingDirection * bulletSpeed, ForceMode2D.Impulse);
+        }
+    }
+
+    private void FlashMuzzleEffect()
+    {
+        if (muzzleFlash != null)
+        {
+            GameObject muzzleFlashObj = Instantiate(muzzleFlash.gameObject, gunTip.position, Quaternion.identity);
+            float size = Random.Range(0.1f, 0.02f);
+            muzzleFlashObj.transform.localScale = new Vector3(size, size, size);
+            muzzleFlashObj.transform.rotation = isFacingLeft ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 180f,0f);
+            if (muzzleFlashObj != null)
+            {
+                Destroy(muzzleFlashObj, 0.05f);
+            }
         }
     }
 

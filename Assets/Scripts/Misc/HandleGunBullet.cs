@@ -5,17 +5,29 @@ using UnityEngine;
 
 public class HandleGunBullet : MonoBehaviour
 {
-    [SerializeField] private float bulletLifeTime = 5f;
+    [SerializeField] private float bulletLifeTime = 4f;
 
     private void Update()
     {
         StartCoroutine(DestroyBullet());
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject != null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     private IEnumerator DestroyBullet()
     {
-        yield return new WaitForSeconds(bulletLifeTime);
-        Destroy(gameObject);
+        if (gameObject)
+        {
+            yield return new WaitForSeconds(bulletLifeTime);
+            Destroy(gameObject);
+        }
     }
 }
