@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private int health = 50;
     private int _startHealth;
 
@@ -23,7 +24,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if (_startHealth <= 0)
         {
+            GameObject deathVFXPrefabClone = Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(deathVFXPrefabClone, 0.8f);
         }
     }
 }

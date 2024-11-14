@@ -211,4 +211,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9374839cd0183a4ebf9dc6cb9a83b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathVFXPrefab: {fileID: 4788990996729408683, guid: 6fe9736da01b18e4d966c8f7a2200a51, type: 3}
   health: 50
