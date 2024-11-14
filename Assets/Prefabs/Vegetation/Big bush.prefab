@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7159552223539902363}
   - component: {fileID: 3690175557624877887}
   - component: {fileID: 8818013264543504487}
+  - component: {fileID: 5515962674046935}
   m_Layer: 0
   m_Name: Big bush
   m_TagString: Untagged
@@ -120,3 +121,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.014412761, y: 0.107153654}
   m_Size: {x: 0.4224789, y: 0.4224789}
   m_Direction: 0
+--- !u!114 &5515962674046935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543769402903546860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba65ed6bcc77e4d4c87b18210c9d02d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyVFXPrefab: {fileID: 228775584342885506, guid: 41d969aba9f826d4fb2389343b29c072, type: 3}

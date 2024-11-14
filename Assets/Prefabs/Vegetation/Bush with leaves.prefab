@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1179826527720710196}
   - component: {fileID: 8170632542546161732}
   - component: {fileID: 2029227832098468295}
+  - component: {fileID: 6389261989924080859}
   m_Layer: 0
   m_Name: Bush with leaves
   m_TagString: Untagged
@@ -120,3 +121,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
+--- !u!114 &6389261989924080859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3166148609670781483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba65ed6bcc77e4d4c87b18210c9d02d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyVFXPrefab: {fileID: 228775584342885506, guid: 6b5bc0ae06a32ab4e9bb39e2185a3861, type: 3}
