@@ -1559,8 +1559,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035794556, y: 0.28978622}
-  m_Size: {x: 0.46468532, y: 0.8523743}
+  m_Offset: {x: 0.02, y: -0.005500309}
+  m_Size: {x: 0.24415863, y: 0.24415879}
   m_Direction: 0
 --- !u!1001 &573923529
 PrefabInstance:
@@ -7517,7 +7517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d517d2bb4adf548975844e5bdb630f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparencyAmount: 0.922
+  transparencyAmount: 0.869
   durationTime: 0.4
 --- !u!4 &940013126 stripped
 Transform:
