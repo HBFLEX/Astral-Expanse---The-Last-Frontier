@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     private PlayerControls _playerControls;
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _sr;
+    
     [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private Transform muzzleFlash;
     [SerializeField] private Transform gunTip;
@@ -35,13 +36,9 @@ public class PlayerController : MonoBehaviour
         _playerControls.Enable();
     }
     
-    private void OnDisable()
+    protected override void Awake()
     {
-        _playerControls.Disable();
-    }
-
-    private void Awake()
-    {
+        base.Awake();
         _playerControls = new PlayerControls();
         _rb = GetComponent <Rigidbody2D>();
         _animator = GetComponent <Animator>();
