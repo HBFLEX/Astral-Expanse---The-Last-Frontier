@@ -49,6 +49,8 @@ public class PlayerController : Singleton<PlayerController>
     {
         _playerControls.Player.Dash.performed += _ => Dash();
         _playerControls.Player.Shoot.performed += _ => Shoot();
+        
+        UIFade.Instance.FadeToClear();
     }
 
     private void Update()
