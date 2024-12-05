@@ -15,6 +15,8 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private Transform muzzleFlash;
     [SerializeField] private Transform gunTip;
     
+    private Knockback _knockback;
+    
     [SerializeField] private float speed = 3f;
     public Vector2 _movement;
     [SerializeField] private bool hasGun = true;
@@ -43,6 +45,7 @@ public class PlayerController : Singleton<PlayerController>
         _rb = GetComponent <Rigidbody2D>();
         _animator = GetComponent <Animator>();
         _sr = GetComponent <SpriteRenderer>();
+        _knockback = GetComponent<Knockback>();
     }
 
     private void Start()
@@ -67,6 +70,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void MovePlayer()
     {
+        if (_knockback.GettingKnockedBack) { return; }
         _rb.MovePosition(_rb.position + _movement * (speed * Time.fixedDeltaTime));
     }
 
