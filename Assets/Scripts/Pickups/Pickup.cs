@@ -4,19 +4,11 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private Transform _playerPos;
+    public bool isPlayerCloseToPickup = false;
 
     private void Start()
     {
         _playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    private void OnTriggerStay2D(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-            Debug.Log("CONGRATULATIONS YOU WON THE GAME!");
-        }
     }
 
     private void Update()
@@ -24,7 +16,18 @@ public class Pickup : MonoBehaviour
         Vector3 currentDistance = _playerPos.position - transform.position;
         if (currentDistance.magnitude < 0.8f)
         {
-            Debug.Log("PICKUP SIGNAL RECEIVER");
+            isPlayerCloseToPickup = true;
+            // Debug.Log("Press E to pickup");
         }
+        else
+        {
+            isPlayerCloseToPickup = false;
+        }
+    }
+
+    public void Pick()
+    {
+        Destroy(gameObject);
+        Debug.Log("Signal Receiver acquired. Congratulations you have won the game");
     }
 }

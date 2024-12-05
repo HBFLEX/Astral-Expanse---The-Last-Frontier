@@ -30,6 +30,8 @@ public class PlayerController : Singleton<PlayerController>
     
     [SerializeField] private float bulletSpeed = 4f;
     private Vector2 _lastFacingDirection;
+
+    private GameObject _pickup;
     
     public bool isFacingLeft = true;
     
@@ -46,12 +48,14 @@ public class PlayerController : Singleton<PlayerController>
         _animator = GetComponent <Animator>();
         _sr = GetComponent <SpriteRenderer>();
         _knockback = GetComponent<Knockback>();
+        _pickup = GameObject.FindGameObjectWithTag("Pickup");
     }
 
     private void Start()
     {
         _playerControls.Player.Dash.performed += _ => Dash();
         _playerControls.Player.Shoot.performed += _ => Shoot();
+        _playerControls.Player.Pickup.performed += _ => PickupItem();
         
         UIFade.Instance.FadeToClear();
     }
@@ -82,6 +86,16 @@ public class PlayerController : Singleton<PlayerController>
             speed *= dashSpeed;
             trailRenderer.emitting = true;
             StartCoroutine(EndDashRoutine());
+        }
+    }
+
+    private void PickupItem()
+    {
+        Debug.Log("ITEM IS CLOSE ?: " + _pickup.GetComponent<Pickup>().isPlayerCloseToPickup.ToString());
+        if (_pickup != null && _pickup.GetComponent<Pickup>().isPlayerCloseToPickup)
+        {
+            Debug.Log("ITEM IS CLOSE ?: " + _pickup.GetComponent<Pickup>().isPlayerCloseToPickup.ToString());
+            GetComponent<Pickup>().Pick();
         }
     }
 
