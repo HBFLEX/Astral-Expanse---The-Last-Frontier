@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 80393242346793468}
   - component: {fileID: 4246323976281011914}
   - component: {fileID: 7128527868274108475}
+  - component: {fileID: 8449529777132951137}
   m_Layer: 0
   m_Name: Alien Ghost
   m_TagString: Enemy
@@ -271,6 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c7f1ae147ca4b45a3699d2320b187f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roamChangeDirFloat: 2
+  attackRange: 5
+  enemyType: {fileID: 8449529777132951137}
+  attackCooldown: 2
+  stopMovingWhileAttacking: 1
   findAnotherPathDecisionTime: 2
 --- !u!114 &7115851124204776651
 MonoBehaviour:
@@ -327,3 +333,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
+--- !u!114 &8449529777132951137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008245802490448826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf05351bbdc542147bf959de4d25044f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 115499307814462149, guid: c07b718c951af4a499ea2bf58947ef48, type: 3}
