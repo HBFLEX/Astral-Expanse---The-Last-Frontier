@@ -11,6 +11,10 @@ public class Destructible : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            if(GetComponent<PickupSpawner>() != null)
+            {
+                GetComponent<PickupSpawner>().SpawnPickup();
+            }
             Destroy(gameObject);
             GameObject destroyVFXPrefabClone = Instantiate(destroyVFXPrefab, transform.position, Quaternion.identity);
             Destroy(destroyVFXPrefabClone, 0.6f);
