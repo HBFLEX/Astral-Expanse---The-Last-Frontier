@@ -6,6 +6,7 @@ using UnityEngine;
 public class Destructible : MonoBehaviour
 {
     [SerializeField] private GameObject  destroyVFXPrefab;
+    [SerializeField] private float destructionDelay = 0.5f; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,9 +16,16 @@ public class Destructible : MonoBehaviour
             {
                 GetComponent<PickupSpawner>().SpawnPickup();
             }
-            Destroy(gameObject);
+
+            if (GetComponent<PlaySFX>() != null)
+            {
+                GetComponent<PlaySFX>().PlaySound();
+            }
+            
             GameObject destroyVFXPrefabClone = Instantiate(destroyVFXPrefab, transform.position, Quaternion.identity);
             Destroy(destroyVFXPrefabClone, 0.6f);
+            
+            Destroy(gameObject, destructionDelay);
         }
     }
 }

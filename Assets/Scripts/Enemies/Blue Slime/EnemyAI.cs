@@ -80,7 +80,10 @@ public class EnemyAI : MonoBehaviour
         if (attackRange != 0 && canAttack) {
 
             canAttack = false;
-            (enemyType as IEnemy).Attack();
+            if (enemyType != null)
+            {
+                (enemyType as IEnemy).Attack();
+            }
 
             if (stopMovingWhileAttacking) {
                 _pathFinding.StopMoving();

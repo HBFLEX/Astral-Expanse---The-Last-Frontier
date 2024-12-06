@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlaySFX : MonoBehaviour
 {
-    [SerializeField] private AudioClip clip;
     private AudioSource audioSource;
 
     private void Awake()
@@ -19,6 +18,6 @@ public class PlaySFX : MonoBehaviour
 
     public void PlaySound()
     {
-        audioSource.PlayOneShot(clip);
+        audioSource.Play();
     }
 }
