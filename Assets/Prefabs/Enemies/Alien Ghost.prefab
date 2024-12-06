@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 115499307814462149, guid: c07b718c951af4a499ea2bf58947ef48, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &2044803351818891571
 MonoBehaviour:
   m_ObjectHideFlags: 0
