@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameComplete.unity
     guid: 21e809524d628a44099449f369758d0b
+  - enabled: 1
+    path: Assets/Scenes/DiedScene.unity
+    guid: 15e504e32b6c5724996772f59cac7655
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
