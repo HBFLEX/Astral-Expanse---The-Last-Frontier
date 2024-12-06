@@ -32,6 +32,7 @@ public class PlayerController : Singleton<PlayerController>
     private Vector2 _lastFacingDirection;
 
     private Pickup _pickup;
+    public Canvas interactiveCanvas;
     
     public bool isFacingLeft = true;
     
@@ -48,6 +49,10 @@ public class PlayerController : Singleton<PlayerController>
         _animator = GetComponent <Animator>();
         _sr = GetComponent <SpriteRenderer>();
         _knockback = GetComponent<Knockback>();
+        if (interactiveCanvas != null)
+        {
+            interactiveCanvas.enabled = false;
+        }
     }
 
     private void Start()
@@ -55,6 +60,11 @@ public class PlayerController : Singleton<PlayerController>
         _playerControls.Player.Dash.performed += _ => Dash();
         _playerControls.Player.Shoot.performed += _ => Shoot();
         _playerControls.Player.Pickup.performed += _ => PickupItem();
+
+        if (interactiveCanvas != null)
+        {
+            interactiveCanvas.enabled = false;
+        }
         
         UIFade.Instance.FadeToClear();
     }

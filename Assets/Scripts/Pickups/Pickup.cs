@@ -1,10 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Pickup : MonoBehaviour
+public class Pickup : Singleton<Pickup>
 {
     private Transform _playerPos;
     public bool isPlayerCloseToPickup = false;
+    private PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
 
     private void Start()
     {
@@ -17,17 +24,30 @@ public class Pickup : MonoBehaviour
         if (currentDistance.magnitude < 0.8f)
         {
             isPlayerCloseToPickup = true;
-            Debug.Log("Press E to pickup");
+            if (playerController.interactiveCanvas != null)
+            {
+                playerController.interactiveCanvas.enabled = true;
+            }
         }
         else
         {
             isPlayerCloseToPickup = false;
+            if (playerController.interactiveCanvas != null)
+            {
+                playerController.interactiveCanvas.enabled = false;
+            }
         }
     }
 
     public void Pick()
     {
         Destroy(gameObject);
+        isPlayerCloseToPickup = false;
+        if (playerController.interactiveCanvas != null)
+        {
+            playerController.interactiveCanvas.enabled = false;
+        }
         Debug.Log("Signal Receiver acquired. Congratulations you have won the game");
+        SceneManager.LoadScene(4); // go to the final scene
     }
 }

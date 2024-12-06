@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene2.unity
     guid: 06234d1c95e0cb54cb4a97732626c416
+  - enabled: 1
+    path: Assets/Scenes/GameComplete.unity
+    guid: 21e809524d628a44099449f369758d0b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
