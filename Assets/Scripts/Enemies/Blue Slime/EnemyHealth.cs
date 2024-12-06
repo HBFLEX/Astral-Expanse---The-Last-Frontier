@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -12,11 +13,14 @@ public class EnemyHealth : MonoBehaviour
     
     private Knockback knockback;
     private Flash flash;
+    
+    private PlaySFX playSFX; 
 
     private void Awake()
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        playSFX = GetComponent<PlaySFX>();
     }
 
     private void Start()
@@ -41,6 +45,10 @@ public class EnemyHealth : MonoBehaviour
     {
         if (_startHealth <= 0)
         {
+            if (playSFX)
+            {
+                playSFX.PlaySound();
+            }
             GameObject deathVFXPrefabClone = Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(deathVFXPrefabClone, 0.8f);
