@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class RestartLevel : MonoBehaviour
+public class RestartLevel : Singleton<RestartLevel>
 {
     public void RestartGame()
     {
