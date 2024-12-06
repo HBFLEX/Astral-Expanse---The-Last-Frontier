@@ -17,7 +17,7 @@ public class Pickup : MonoBehaviour
         if (currentDistance.magnitude < 0.8f)
         {
             isPlayerCloseToPickup = true;
-            // Debug.Log("Press E to pickup");
+            Debug.Log("Press E to pickup");
         }
         else
         {
