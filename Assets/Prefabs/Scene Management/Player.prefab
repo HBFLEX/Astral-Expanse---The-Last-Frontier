@@ -366,6 +366,7 @@ MonoBehaviour:
   bulletShootingSpawnPoint: {fileID: 4345375444886245487}
   bulletPrefab: {fileID: 8493939834552871350, guid: 668a6be6bdad4b349b94f43d885fa2c2, type: 3}
   bulletSpeed: 4
+  yd: {fileID: 0}
   isFacingLeft: 1
 --- !u!114 &2150918840726790612
 MonoBehaviour:
@@ -379,9 +380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7770b00f099c2742ae27b987cabaa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 10
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
+  currentHealth: 0
 --- !u!114 &1597394297569239143
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,18 +24,10 @@ public class Pickup : Singleton<Pickup>
         if (currentDistance.magnitude < 0.8f)
         {
             isPlayerCloseToPickup = true;
-            if (playerController.interactiveCanvas != null)
-            {
-                playerController.interactiveCanvas.enabled = true;
-            }
         }
         else
         {
             isPlayerCloseToPickup = false;
-            if (playerController.interactiveCanvas != null)
-            {
-                playerController.interactiveCanvas.enabled = false;
-            }
         }
     }
 
@@ -43,10 +35,6 @@ public class Pickup : Singleton<Pickup>
     {
         Destroy(gameObject);
         isPlayerCloseToPickup = false;
-        if (playerController.interactiveCanvas != null)
-        {
-            playerController.interactiveCanvas.enabled = false;
-        }
         Debug.Log("Signal Receiver acquired. Congratulations you have won the game");
         SceneManager.LoadScene(4); // go to the final scene
     }

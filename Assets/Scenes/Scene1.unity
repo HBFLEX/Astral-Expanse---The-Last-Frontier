@@ -186,17 +186,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7159552223539902363, guid: b5760b0c38483e748a71d8a1fe91d222, type: 3}
   m_PrefabInstance: {fileID: 448868150}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &49609432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9015320640748316377, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
-  m_PrefabInstance: {fileID: 2145355137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &77782493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2998602636789803408, guid: ca2d694f30ee204409070020dc1dc71a, type: 3}
@@ -26330,10 +26319,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3832501200044756006, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 49609432}
+    - target: {fileID: 1680902825804207964, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159973265704130465, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+      propertyPath: transitionName
+      value: WEntry
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043144308688116842, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5768339240524185966, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -26378,11 +26375,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8703640713749151997, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 5163745716631868993}
+    - target: {fileID: 8703640713749151997, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+      propertyPath: transitionName
+      value: WEntry
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2159973265704130465, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+--- !u!1 &427192182324286264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1680902825804207964, guid: 0dc09fcba9901d54d9c9a4e1583afdc9, type: 3}
+  m_PrefabInstance: {fileID: 2145355137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!199 &583772384570315017
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -26992,14 +27003,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2150918840726790612, guid: 0e668ae5c506af643b94e611ad4c713f, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2150918840726790612, guid: 0e668ae5c506af643b94e611ad4c713f, type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2560430112803717176, guid: 0e668ae5c506af643b94e611ad4c713f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.923
@@ -27045,14 +27048,25 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6588195251054674815, guid: 0e668ae5c506af643b94e611ad4c713f, type: 3}
-      propertyPath: interactiveCanvas
+      propertyPath: yd
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 427192182324286264}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e668ae5c506af643b94e611ad4c713f, type: 3}
+--- !u!114 &5163745716631868993 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2150918840726790612, guid: 0e668ae5c506af643b94e611ad4c713f, type: 3}
+  m_PrefabInstance: {fileID: 5163745716631868992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7770b00f099c2742ae27b987cabaa51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6277947070836399363
 GameObject:
   m_ObjectHideFlags: 0

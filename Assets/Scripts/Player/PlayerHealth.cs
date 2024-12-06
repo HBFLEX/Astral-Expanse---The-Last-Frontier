@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
-
+    
+    
+    private PlayerController playerController;
     public int currentHealth;
     private bool canTakeDamage = true;
     private Knockback knockback;
@@ -16,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake() {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Start() {
@@ -36,10 +38,9 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
         currentHealth -= damageAmount;
-
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene(5);
+            playerController.yd.SetActive(true);
         }
         StartCoroutine(DamageRecoveryRoutine());
     }

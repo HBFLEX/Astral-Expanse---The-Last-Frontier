@@ -17,6 +17,11 @@ public class AreaExit : MonoBehaviour
             StartCoroutine(LoadSceneRoutine());
         }
     }
+    
+    public void ActivateTrigger(Collider2D simulatedCollider)
+    {
+        OnTriggerEnter2D(simulatedCollider);
+    }
 
     private IEnumerator LoadSceneRoutine() {
         while (waitToLoadTime >= 0) 
